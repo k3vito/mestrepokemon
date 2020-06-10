@@ -27,6 +27,27 @@
         animation:none
       }
     </style>
+    <style type="text/css">
+      .home-button {
+  margin-top: 8px;
+}
+.headerbar {
+  height: 50px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.site-name {
+  margin: auto;
+}
+article {
+  margin-top: 50px;
+}
+      
+    </style>
     </noscript>
     <!-- AMP Analytics --><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
@@ -35,8 +56,11 @@
     <!-- Google Tag Manager -->
 <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-KJ4NT47&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
 
-<header>
-    <div layout="fixed-height" height="50">Mestre Pokémon</div>
+<header class="headerbar">
+<!--   <a href="homepage.html">
+    <amp-img class="home-button" src="icons/home.png" width="36" height="36"></amp-img>
+  </a> -->
+<div class="site-name">News Site</div>
 </header>
 
 
