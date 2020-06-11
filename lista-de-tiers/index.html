@@ -86,6 +86,31 @@
         }
         </style>
     </noscript>
+    <style amp-custom>
+    .home-button {
+        margin-top: 8px;
+    }
+
+    .headerbar {
+        height: 50px;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background: #1e555c;
+    }
+
+    .site-name {
+        margin: auto;
+        color: #ffffff;
+    }
+
+    main {
+        margin-top: 50px;
+    }
+    </style>
     <!-- AMP Analytics -->
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 </head>
@@ -93,10 +118,15 @@
 <body>
     <!-- Google Tag Manager -->
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-KJ4NT47&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
-    <h1>Lista de Tiers</h1>
-    <h2>Tier 1</h2>
-    <h2>Tier 2</h2>
-    <h2>Tier 3</h2>
+    <header class="headerbar">
+        <div class="site-name">Mestre Pokémon</div>
+    </header>
+    <main>
+        <h1>Lista de Tiers</h1>
+        <h2>Tier 1</h2>
+        <h2>Tier 2</h2>
+        <h2>Tier 3</h2>
+    </main>
 </body>
 
 </html>
