@@ -177,10 +177,10 @@
                 </script>
             </amp-state>
             <p>
-                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState(pokemon-status{{iv:{hp: event.value}})" />
+                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({pokemon-status{iv:{hp: event.value}}})" />
             </p>
             <p>
-                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState(pokemon-status{{ev:{hp: event.value}})" />
+                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({pokemon-status{ev:{hp: event.value}}})" />
             </p>
             <p>
                 HP LVL50
