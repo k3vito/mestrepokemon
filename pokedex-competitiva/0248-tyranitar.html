@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <title>#0248 Tyranitar | Mestre Pokémon</title>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <link rel="canonical" href="https://k3vito.github.io/mestrepokemon/pokedex-competitiva/0248-tyranitar.html">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <!--     <script type="application/ld+json">
@@ -19,7 +20,7 @@
       }
     </script> -->
     <style amp-boilerplate>
-    body {
+        body {
         -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
         -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
         -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -78,7 +79,7 @@
     </style>
     <noscript>
         <style amp-boilerplate>
-        body {
+            body {
             -webkit-animation: none;
             -moz-animation: none;
             -ms-animation: none;
@@ -87,7 +88,7 @@
         </style>
     </noscript>
     <style amp-custom>
-    .home-button {
+        .home-button {
         margin-top: 8px;
     }
 
@@ -141,6 +142,16 @@
         <p>Special Defense: 100</p>
         <p>Speed: 61</p>
         <p>Total: 600</p>
+        <form class="sample-form" method="post" action-xhr="/documentation/examples/api/submit-form-xhr" target="_top">
+            <input type="range" name="points" min="0" max="31">
+            <input type="submit" value="OK">
+            <div submit-success>
+                Success!
+            </div>
+            <div submit-error>
+                Error!
+            </div>
+        </form>
     </main>
 </body>
 
