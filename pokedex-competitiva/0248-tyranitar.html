@@ -161,15 +161,15 @@
                 HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({iv:{hp: event.value}})" />
             </p>
             <p>
-                HP EV <input type="number" min="0" max="252" value="252" on="input-throttled:AMP.setState({ev:{hp: event.value}})" />
+                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({ev:{hp: event.value}})" />
             </p>
             <p>
                 HP é
                 <span [text]="CalcularHP(StatusBase.hp,iv.hp)">0</span>
             </p>
             <p>
-                HP real é
-                <span [text]="CalcularHPreal(StatusBase.hp,iv.hp,ev.hp)">0</span>
+                HP LVL50
+                <span [text]="CalcularHPreal(StatusBase.hp,iv.hp,ev.hp)">175</span>
             </p>
         </div>
         <div>
