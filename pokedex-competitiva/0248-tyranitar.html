@@ -143,8 +143,7 @@
         <p>Speed: 61</p>
         <p>Total: 600</p>
         <div>
-            <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
-            <amp-bind-macro id="CalcularHPreal" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
+            <amp-bind-macro id="CalcularHP" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
             <amp-state id="PokemonStatus">
                 <script type="application/json">
                 {
@@ -184,7 +183,7 @@
             </p>
             <p>
                 HP LVL50
-                <span [text]="CalcularHPreal(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
+                <span [text]="CalcularHP(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
             </p>
         </div>
         <div>
