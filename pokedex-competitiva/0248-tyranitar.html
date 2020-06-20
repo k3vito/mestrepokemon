@@ -142,39 +142,38 @@
         <p>Special Defense: 100</p>
         <p>Speed: 61</p>
         <p>Total: 600</p>
-
         <div>
-
             <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
-           
-
-<amp-state id="StatusBase">
-  <script type="application/json">
-    {
-                             "hp": 100,
-                        "attack":134,
-                      "defense": 110,
+            <amp-bind-macro id="CalcularHPreal" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
+            <amp-state id="StatusBase">
+                <script type="application/json">
+                {
+                    "hp": 100,
+                    "attack": 134,
+                    "defense": 110,
                     "special attack": 95,
-                    "special defense":100,
-                   "speed":61
-      }
-  </script>
-</amp-state>
+                    "special defense": 100,
+                    "speed": 61
+                }
+                </script>
+            </amp-state>
             <p>
-                HP IV
+                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({iv:{hp: event.value}})" />
             </p>
-            <input type="number" min="0" max="9" value="31" on="input-throttled:AMP.setState({iv:{hp: event.value}})" />
-
+            <p>
+                HP EV <input type="number" min="0" max="252" value="252" on="input-throttled:AMP.setState({ev:{hp: event.value}})" />
+            </p>
             <p>
                 HP é
-                <span [text]="CalcularHP(StatusBase.hp,iv.hp)">0</span>.
+                <span [text]="CalcularHP(StatusBase.hp,iv.hp)">0</span>
+            </p>
+            <p>
+                HP real é
+                <span [text]="CalcularHPreal(StatusBase.hp,iv.hp,ev.hp)">0</span>
             </p>
         </div>
-
         <div>
-            
         </div>
-
     </main>
 </body>
 
