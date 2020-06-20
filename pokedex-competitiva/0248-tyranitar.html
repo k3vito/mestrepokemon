@@ -144,6 +144,10 @@
         <p>Total: 600</p>
 
         <div>
+
+
+            
+            <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
             <amp-state id="base">
 
     <script type="application/ld+json">
@@ -157,10 +161,6 @@
       }
     </script>
             </amp-state>
-
-            
-            <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
-
             <p>
                 HP IV
             </p>
