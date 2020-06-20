@@ -142,22 +142,33 @@
         <p>Special Defense: 100</p>
         <p>Speed: 61</p>
         <p>Total: 600</p>
+
         <div>
+            <amp-state id="base">
+
+    <script type="application/ld+json">
+      {
+        "hp": 100,
+        "attack":134,
+        "defense": 110,
+        "special attack": 95,
+        "special defense":100,
+        "speed":61
+      }
+    </script>
+            </amp-state>
+
+            
             <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
-            <p>
-                HP Base
-            </p>
-            <input type="number" min="0" max="9" value="0" on="input-throttled:AMP.setState({hp:{base: event.value}})" />
 
             <p>
                 HP IV
             </p>
-            <input type="number" min="0" max="9" value="0" on="input-throttled:AMP.setState({hp:{iv: event.value}})" />
-
+            <input type="number" min="0" max="9" value="31" on="input-throttled:AMP.setState({hp:{iv: event.value}})" />
 
             <p>
                 HP é
-                <span [text]="CalcularHP(hp.base,hp.iv)">0</span>.
+                <span [text]="CalcularHP(base.hp,hp.iv)">0</span>.
             </p>
         </div>
 
