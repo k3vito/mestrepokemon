@@ -145,7 +145,7 @@
         <div>
             <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="base*1+iv*1"></amp-bind-macro>
             <amp-bind-macro id="CalcularHPreal" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
-            <amp-state id="pokemon-status">
+            <amp-state id="PokemonStatus">
                 <script type="application/json">
                 {
                     "base": {
@@ -177,14 +177,14 @@
                 </script>
             </amp-state>
             <p>
-                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({pokemon-status:{iv:{hp: event.value}}})" />
+                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{hp: event.value}}})" />
             </p>
             <p>
-                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({pokemon-status:{ev:{hp: event.value}}})" />
+                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{hp: event.value}}})" />
             </p>
             <p>
                 HP LVL50
-                <span [text]="CalcularHPreal(pokemon-status.base.hp,pokemon-status.iv.hp,pokemon-status.ev.hp)">175</span>
+                <span [text]="CalcularHPreal(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
             </p>
         </div>
         <div>
