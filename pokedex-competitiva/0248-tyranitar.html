@@ -143,14 +143,21 @@
         <p>Speed: 61</p>
         <p>Total: 600</p>
         <div>
-            <amp-bind-macro id="circleArea" arguments="radius" expression="3.14 * radius * radius"></amp-bind-macro>
+            <amp-bind-macro id="CalcularHP" arguments="base, iv" expression="10 * base + iv"></amp-bind-macro>
             <p>
-                Input a radius value
+                HP Base
             </p>
-            <input type="number" min="0" max="100" value="0" on="input-throttled:AMP.setState({myCircle:{radius: event.value}})" />
+            <input type="number" min="0" max="9" value="0" on="input-throttled:AMP.setState({hp:{base: event.value}})" />
+
             <p>
-                The circle has an area of
-                <span [text]="circleArea(myCircle.radius)">0</span>.
+                HP IV
+            </p>
+            <input type="number" min="0" max="9" value="0" on="input-throttled:AMP.setState({hp:{iv: event.value}})" />
+
+
+            <p>
+                HP é
+                <span [text]="CalcularHP(hp.base,hp.iv)">0</span>.
             </p>
         </div>
 
