@@ -134,16 +134,21 @@
             <amp-img src="../ativos/img/tipos/rock.jpg" alt="Rock" width="200" height="44"></amp-img>
             <amp-img src="../ativos/img/tipos/dark.jpg" alt="Dark" width="200" height="44"></amp-img>
         </div>
-        <h2>Status Base</h2>
-        <p>HP: 100</p>
-        <p>Attack: 134</p>
-        <p>Defense: 110</p>
-        <p>Special Attack: 95</p>
-        <p>Special Defense: 100</p>
-        <p>Speed: 61</p>
-        <p>Total: 600</p>
+        <h2>Status</h2>
         <div>
+        	<h3>Base</h3>
+        	<p>HP: 100</p>
+        	<p>Attack: 134</p>
+        	<p>Defense: 110</p>
+        	<p>Special Attack: 95</p>
+        	<p>Special Defense: 100</p>
+        	<p>Speed: 61</p>
+        	<p>Total: 600</p>        	
+        </div>
+        <div>
+            <h3>Level 50</h3>
             <amp-bind-macro id="CalcularHP" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
+            <amp-bind-macro id="CalcularOutrosStatus" arguments="base, iv, ev, nature" expression="floor(((2*base+iv*1+ev/4)*50/100+5)*nature)"></amp-bind-macro>
             <amp-state id="PokemonStatus">
                 <script type="application/json">
                 {
@@ -170,23 +175,22 @@
                         "special attack": 0,
                         "special defense": 0,
                         "speed": 0
-                    }
+                    },
+                    "nature": 1
 
                 }
                 </script>
             </amp-state>
             <p>
-                HP IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{hp: event.value}}})" />
-            </p>
-            <p>
-                HP EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{hp: event.value}}})" />
-            </p>
-            <p>
-                HP LVL50
+                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{hp: event.value}}})" />
+                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{hp: event.value}}})" />
                 <span [text]="CalcularHP(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
             </p>
-        </div>
-        <div>
+            <p>
+                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{attack: event.value}}})" />
+                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{attack: event.value}}})" />
+                <span [text]="CalcularOutrosStatus(PokemonStatus.base.attack,PokemonStatus.iv.attack,PokemonStatus.ev.attack,PokemonStatus.nature)">154</span>
+            </p>
         </div>
     </main>
 </body>
