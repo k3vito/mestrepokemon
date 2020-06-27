@@ -125,81 +125,83 @@
         </div>
         <h2>Status</h2>
         <div>
-            <h3>Base</h3>
-            <p>HP: 100</p>
-            <p>Attack: 134</p>
-            <p>Defense: 110</p>
-            <p>Special Attack: 95</p>
-            <p>Special Defense: 100</p>
-            <p>Speed: 61</p>
-            <p>Total: 600</p>
-        </div>
-        <div>
-            <h3>Level 50</h3>
-            <amp-bind-macro id="CalcularHP" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
-            <amp-bind-macro id="CalcularOutrosStatus" arguments="base, iv, ev, nature" expression="floor(((2*base+iv*1+ev/4)*50/100+5)*nature)"></amp-bind-macro>
-            <amp-state id="PokemonStatus">
-                <script type="application/json">
-                {
-                    "base": {
-                        "hp": 100,
-                        "attack": 134,
-                        "defense": 110,
-                        "specialattack": 95,
-                        "specialdefense": 100,
-                        "speed": 61
-                    },
-                    "iv": {
-                        "hp": 31,
-                        "attack": 31,
-                        "defense": 31,
-                        "specialattack": 31,
-                        "specialdefense": 31,
-                        "speed": 31
-                    },
-                    "ev": {
-                        "hp": 0,
-                        "attack": 0,
-                        "defense": 0,
-                        "specialattack": 0,
-                        "specialdefense": 0,
-                        "speed": 0
-                    },
-                    "nature": 1
+            <div>
+                <h3>Base</h3>
+                <p>HP: 100</p>
+                <p>Attack: 134</p>
+                <p>Defense: 110</p>
+                <p>Special Attack: 95</p>
+                <p>Special Defense: 100</p>
+                <p>Speed: 61</p>
+                <p>Total: 600</p>
+            </div>
+            <div>
+                <h3>Level 50</h3>
+                <amp-bind-macro id="CalcularHP" arguments="base, iv, ev" expression="floor((2*base+iv*1+ev/4)*50/100+50+10)"></amp-bind-macro>
+                <amp-bind-macro id="CalcularOutrosStatus" arguments="base, iv, ev, nature" expression="floor(((2*base+iv*1+ev/4)*50/100+5)*nature)"></amp-bind-macro>
+                <amp-state id="PokemonStatus">
+                    <script type="application/json">
+                    {
+                        "base": {
+                            "hp": 100,
+                            "attack": 134,
+                            "defense": 110,
+                            "specialattack": 95,
+                            "specialdefense": 100,
+                            "speed": 61
+                        },
+                        "iv": {
+                            "hp": 31,
+                            "attack": 31,
+                            "defense": 31,
+                            "specialattack": 31,
+                            "specialdefense": 31,
+                            "speed": 31
+                        },
+                        "ev": {
+                            "hp": 0,
+                            "attack": 0,
+                            "defense": 0,
+                            "specialattack": 0,
+                            "specialdefense": 0,
+                            "speed": 0
+                        },
+                        "nature": 1
 
-                }
-                </script>
-            </amp-state>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{hp: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{hp: event.value}}})" />
-                <span [text]="CalcularHP(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
-            </p>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{attack: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{attack: event.value}}})" />
-                <span [text]="CalcularOutrosStatus(PokemonStatus.base.attack,PokemonStatus.iv.attack,PokemonStatus.ev.attack,PokemonStatus.nature)">154</span>
-            </p>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{defense: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{defense: event.value}}})" />
-                <span [text]="CalcularOutrosStatus(PokemonStatus.base.defense,PokemonStatus.iv.defense,PokemonStatus.ev.defense,PokemonStatus.nature)">130</span>
-            </p>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{specialattack: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{specialattack: event.value}}})" />
-                <span [text]="CalcularOutrosStatus(PokemonStatus.base.specialattack,PokemonStatus.iv.specialattack,PokemonStatus.ev.specialattack,PokemonStatus.nature)">115</span>
-            </p>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{specialdefense: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{specialdefense: event.value}}})" />
-                <span [text]="CalcularOutrosStatus(PokemonStatus.base.specialdefense,PokemonStatus.iv.specialdefense,PokemonStatus.ev.specialdefense,PokemonStatus.nature)">120</span>
-            </p>
-            <p>
-                IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{speed: event.value}}})" />
-                EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{speed: event.value}}})" />
-                <span [text]="CalcularOutrosStatus(PokemonStatus.base.speed,PokemonStatus.iv.speed,PokemonStatus.ev.speed,PokemonStatus.nature)">81</span>
-            </p>
+                    }
+                    </script>
+                </amp-state>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{hp: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{hp: event.value}}})" />
+                    <span [text]="CalcularHP(PokemonStatus.base.hp,PokemonStatus.iv.hp,PokemonStatus.ev.hp)">175</span>
+                </p>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{attack: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{attack: event.value}}})" />
+                    <span [text]="CalcularOutrosStatus(PokemonStatus.base.attack,PokemonStatus.iv.attack,PokemonStatus.ev.attack,PokemonStatus.nature)">154</span>
+                </p>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{defense: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{defense: event.value}}})" />
+                    <span [text]="CalcularOutrosStatus(PokemonStatus.base.defense,PokemonStatus.iv.defense,PokemonStatus.ev.defense,PokemonStatus.nature)">130</span>
+                </p>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{specialattack: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{specialattack: event.value}}})" />
+                    <span [text]="CalcularOutrosStatus(PokemonStatus.base.specialattack,PokemonStatus.iv.specialattack,PokemonStatus.ev.specialattack,PokemonStatus.nature)">115</span>
+                </p>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{specialdefense: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{specialdefense: event.value}}})" />
+                    <span [text]="CalcularOutrosStatus(PokemonStatus.base.specialdefense,PokemonStatus.iv.specialdefense,PokemonStatus.ev.specialdefense,PokemonStatus.nature)">120</span>
+                </p>
+                <p>
+                    IV <input type="number" min="0" max="31" value="31" on="input-throttled:AMP.setState({PokemonStatus:{iv:{speed: event.value}}})" />
+                    EV <input type="number" min="0" max="252" value="0" on="input-throttled:AMP.setState({PokemonStatus:{ev:{speed: event.value}}})" />
+                    <span [text]="CalcularOutrosStatus(PokemonStatus.base.speed,PokemonStatus.iv.speed,PokemonStatus.ev.speed,PokemonStatus.nature)">81</span>
+                </p>
+            </div>
         </div>
     </main>
 </body>
